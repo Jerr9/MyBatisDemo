@@ -23,6 +23,7 @@ public class UserController {
     @RequestMapping("getById")
     public ResBody getUserById(@RequestParam("id") Integer id) {
         User user = userService.getUserById(id);
+        log.warn("=============== {}", id);
         if (user == null) {
             return ResBodyUtil.fail();
         }
