@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public enum ResEnum {
     SUCCESS(0, "操作成功"),
-    UNKNOWN_ERROR(404, "系统异常"),
+    UNKNOWN_ERROR(505, "系统异常"),
     NOT_EXIST(1, "操作对象不存在");
 
     private Integer code;
