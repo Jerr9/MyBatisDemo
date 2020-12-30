@@ -1,4 +1,4 @@
-create table tb_user
+create table tempdb.tb_user
 (
   id   int(128) auto_increment
     primary key,

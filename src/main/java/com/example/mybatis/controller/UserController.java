@@ -1,10 +1,10 @@
 package com.example.mybatis.controller;
 
-import com.example.mybatis.bean.ResBody;
+import com.example.mybatis.bean.Result;
 import com.example.mybatis.entity.User;
 import com.example.mybatis.enums.ResEnum;
 import com.example.mybatis.service.UserService;
-import com.example.mybatis.utils.ResBodyUtil;
+import com.example.mybatis.utils.ResultUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,58 +21,58 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("getById")
-    public ResBody getUserById(@RequestParam("id") Integer id) {
+    public Result getUserById(@RequestParam("id") Integer id) {
         User user = userService.getUserById(id);
         log.warn("=============== {}", id);
         if (user == null) {
-            return ResBodyUtil.fail();
+            return ResultUtil.fail();
         }
         else {
-            return ResBodyUtil.success(user);
+            return ResultUtil.success(user);
         }
     }
 
     @RequestMapping("addUser")
-    public ResBody addUser(@RequestBody User user) {
+    public Result addUser(@RequestBody User user) {
         userService.addUser(user);
-        return ResBodyUtil.success();
+        return ResultUtil.success();
     }
 
     @RequestMapping("userRegistry")
-    public ResBody userRegistry(@RequestBody User user) {
+    public Result userRegistry(@RequestBody User user) {
         userService.userRegistry(user);
-        return ResBodyUtil.success();
+        return ResultUtil.success();
     }
 
     @RequestMapping("updateUser")
-    public ResBody updateUser(@RequestBody User user) {
+    public Result updateUser(@RequestBody User user) {
         User dbUser = userService.getUserById(user.getId());
         if (dbUser == null) {
-            return ResBodyUtil.fail();
+            return ResultUtil.fail();
         }
         userService.updateUser(user);
-        return ResBodyUtil.success();
+        return ResultUtil.success();
     }
 
     @RequestMapping("updateUserMap")
-    public ResBody updateUserMap(@RequestBody Map<String, Object> map) {
+    public Result updateUserMap(@RequestBody Map<String, Object> map) {
         User dbUser = userService.getUserById((Integer)map.get("id"));
         if (dbUser == null) {
-            return ResBodyUtil.fail();
+            return ResultUtil.fail();
         }
         userService.updateUserMap(map);
-        return ResBodyUtil.success();
+        return ResultUtil.success();
     }
 
     @PostMapping("userDestroy")
-    public ResBody userDestroy(@RequestParam Integer id) {
+    public Result userDestroy(@RequestParam Integer id) {
         Integer res = userService.deleteUser(id);
         log.info("execution result: {}", res);
         if (res == 1) {
-            return ResBodyUtil.success();
+            return ResultUtil.success();
         }
         else {
-            return ResBodyUtil.fail(ResEnum.NOT_EXIST);
+            return ResultUtil.fail(ResEnum.NOT_EXIST);
         }
     }
 }
