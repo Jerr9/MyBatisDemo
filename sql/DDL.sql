@@ -24,8 +24,6 @@ create table tb_order_master
 	pay_status tinyint default '0' not null,
 	pay_time datetime null,
 	user_id varchar(256) not null,
-	category_description varchar(512) default '' null,
-	caegory_icon varchar(256) default '' null,
 	create_time datetime default CURRENT_TIMESTAMP null,
 	update_time datetime default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP,
 	constraint tb_order_master_unique_index
@@ -57,7 +55,7 @@ create table tb_product_category
 		primary key,
 	category_name varchar(256) not null,
 	category_description varchar(512) default '' null,
-	caegory_icon varchar(256) default '' null,
+	category_icon varchar(256) default '' null,
 	create_time datetime default CURRENT_TIMESTAMP null,
 	update_time datetime default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP,
 	constraint tb_product_unique_index
