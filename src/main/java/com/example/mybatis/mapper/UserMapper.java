@@ -7,12 +7,13 @@ import org.apache.ibatis.annotations.Insert;
 import java.util.Map;
 
 public interface UserMapper {
-    User getUserById(Integer id);
+    User getUserByUid(String uid);
 
-    @Insert("insert into tb_user(name, age, sex) values(" +
-            "#{name, jdbcType=VARCHAR}," +
+    @Insert("insert into tb_user(name, age, sex, uid) values(" +
+            "#{username, jdbcType=VARCHAR}," +
             "#{age, jdbcType=INTEGER}," +
-            "#{sex, jdbcType=INTEGER}" +
+            "#{sex, jdbcType=INTEGER}," +
+            "#{uid, jdbcType=VARCHAR}" +
             ")")
     int addUser(User user);
 
@@ -22,5 +23,5 @@ public interface UserMapper {
 
     int updateUserMap(Map map);
 
-    int deleteUser(Integer id);
+    int deleteUser(String id);
 }

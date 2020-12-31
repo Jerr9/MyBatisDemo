@@ -1,5 +1,9 @@
 package com.example.mybatis.exception;
 
-public class GlobalException extends Exception {
+import com.example.mybatis.enums.ResEnum;
 
+public class GlobalException extends RuntimeException {
+    public GlobalException(ResEnum resEnum) {
+        super(resEnum.getMsg());
+    }
 }

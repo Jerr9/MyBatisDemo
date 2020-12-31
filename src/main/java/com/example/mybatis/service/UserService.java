@@ -5,7 +5,7 @@ import com.example.mybatis.entity.User;
 import java.util.Map;
 
 public interface UserService {
-    User getUserById(Integer id);
+    User getUserByUid(String uid);
 
     int addUser(User user);
 
@@ -15,5 +15,5 @@ public interface UserService {
 
     int updateUserMap(Map map);
 
-    int deleteUser(Integer id);
+    int deleteUser(String id);
 }
