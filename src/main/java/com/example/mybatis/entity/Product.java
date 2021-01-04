@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Data
 public class Product implements Serializable {
-    private String productId;
+    private Integer productId;
     private String productName;
     private String productIcon;
     private String productDesc;

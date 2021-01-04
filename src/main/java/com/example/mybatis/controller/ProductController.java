@@ -4,6 +4,7 @@ import com.example.mybatis.bean.Result;
 import com.example.mybatis.service.ProductService;
 import com.example.mybatis.utils.ResultUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +20,19 @@ public class ProductController {
 
     @RequestMapping("list")
     public Result getCategoryList() {
-        log.info("----- {}", productService.getCategoryList());
-        return ResultUtil.success();
+        return ResultUtil.success(productService.getCategoryList());
+    }
+
+    @RequestMapping("detail")
+    public Result getDetail(@Param("id") Integer id) {
+
+        return ResultUtil.success(productService.getDetailById(id));
+    }
+
+    @RequestMapping("details")
+    public Result getDetails(@Param("ids") String ids) {
+        log.info("----- {}", ids);
+
+        return ResultUtil.success(productService.getDetailById(ids));
     }
 }

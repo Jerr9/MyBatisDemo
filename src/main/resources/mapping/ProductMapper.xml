@@ -47,4 +47,30 @@
 <!--    <delete id="deleteUser" parameterType="java.lang.String">-->
 <!--        delete from tb_user where uid = #{uid, jdbcType=VARCHAR}-->
 <!--    </delete>-->
+
+    <resultMap id="multiProductResultMap" type="com.example.mybatis.entity.Product">
+        <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+        <result column="product_id" jdbcType="VARCHAR" property="productId" />
+        <result column="product_name" jdbcType="VARCHAR" property="productName" />
+        <result column="price" jdbcType="VARCHAR" property="price" />
+        <result column="product_description" jdbcType="VARCHAR" property="productDesc" />
+        <result column="is_sale" jdbcType="INTEGER" property="isSale" />
+        <result column="stock" jdbcType="INTEGER" property="stock" />
+        <result column="product_icon" jdbcType="VARCHAR" property="productIcon" />
+    </resultMap>
+    
+    <select id="getDetailByIds" parameterType="java.util.List" resultMap="multiProductResultMap">
+        select category_id,
+            product_id,
+            product_name,
+            price,
+            product_description,
+            is_sale,
+            stock,
+            product_icon
+            from tb_product where product_id in
+        <foreach collection="ids" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
 </mapper>

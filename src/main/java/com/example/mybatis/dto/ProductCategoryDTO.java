@@ -1,5 +1,6 @@
 package com.example.mybatis.dto;
 
+import com.example.mybatis.entity.Product;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -14,5 +15,5 @@ public class ProductCategoryDTO implements Serializable {
     private String categoryIcon;
     private Date createTime;
     private Date updateTime;
-    private List<ProductDTO> children;
+    private List<Product> children;
 }
