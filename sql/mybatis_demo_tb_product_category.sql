@@ -1,3 +1,3 @@
-INSERT INTO mybatis_demo.tb_product_category (category_id, category_name, category_description, caegory_icon, create_time, update_time) VALUES (10, '手机', '手机设备', '', '2020-12-31 23:52:10', '2020-12-31 23:52:10');
-INSERT INTO mybatis_demo.tb_product_category (category_id, category_name, category_description, caegory_icon, create_time, update_time) VALUES (11, '电脑', 'PC、MAC等微机', '', '2020-12-31 23:52:10', '2020-12-31 23:52:10');
-INSERT INTO mybatis_demo.tb_product_category (category_id, category_name, category_description, caegory_icon, create_time, update_time) VALUES (12, '相机', '各式相机', '', '2020-12-31 23:52:10', '2020-12-31 23:52:10');
+INSERT INTO mybatis_demo.tb_product_category (category_id, category_name, category_description, category_icon, create_time, update_time) VALUES (10, '手机', '手机设备', '', '2020-12-31 23:52:10', '2020-12-31 23:52:10');
+INSERT INTO mybatis_demo.tb_product_category (category_id, category_name, category_description, category_icon, create_time, update_time) VALUES (11, '电脑', 'PC、MAC等微机', '', '2020-12-31 23:52:10', '2020-12-31 23:52:10');
+INSERT INTO mybatis_demo.tb_product_category (category_id, category_name, category_description, category_icon, create_time, update_time) VALUES (12, '相机', '各式相机', '', '2020-12-31 23:52:10', '2020-12-31 23:52:10');

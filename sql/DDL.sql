@@ -80,7 +80,7 @@ create table tb_user
 	id int auto_increment
 		primary key,
 	uid varchar(128) not null,
-	role_id mediumint not null default 1000;
+	role_id mediumint not null default 1000,
 	name varchar(64) not null,
 	age int(8) not null,
 	sex int(4) not null,
